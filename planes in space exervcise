@@ -1,0 +1,592 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNVli7e+TZd0gGwtF4xhf61",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Fefefefe1/Math-2024-25-Winter/blob/main/planes%20in%20space%20exervcise\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "The plane passes through points\n",
+        "A\n",
+        "(\n",
+        "1\n",
+        ",\n",
+        "2\n",
+        ",\n",
+        "3\n",
+        ")\n",
+        ",\n",
+        "B\n",
+        "(\n",
+        "3\n",
+        ",\n",
+        "4\n",
+        ",\n",
+        "5\n",
+        ")\n",
+        ", and\n",
+        "C\n",
+        "(\n",
+        "2\n",
+        ",\n",
+        "1\n",
+        ",\n",
+        "4\n",
+        ")\n",
+        ". Find the equation of the plane."
+      ],
+      "metadata": {
+        "id": "R7W74QAwkjI8"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "y-mCm3uMkeKD",
+        "outputId": "16fd6db9-d68b-4dab-d397-94e0f2775eb6"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The equation of the plane is: 4x + 0y + -4z + 8 = 0\n"
+          ]
+        }
+      ],
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "# Define the points\n",
+        "point_A = np.array([1, 2, 3])\n",
+        "point_B = np.array([3, 4, 5])\n",
+        "point_C = np.array([2, 1, 4])\n",
+        "\n",
+        "# Calculate two vectors in the plane\n",
+        "vector_AB = point_B - point_A\n",
+        "vector_AC = point_C - point_A\n",
+        "\n",
+        "# Calculate the normal vector (cross product of AB and AC)\n",
+        "normal_vector = np.cross(vector_AB, vector_AC)\n",
+        "\n",
+        "# Extract coefficients of the normal vector\n",
+        "a, b, c = normal_vector\n",
+        "\n",
+        "# Calculate the constant term (d) using point A\n",
+        "d = -np.dot(normal_vector, point_A)\n",
+        "\n",
+        "# Print the equation of the plane\n",
+        "print(f\"The equation of the plane is: {a}x + {b}y + {c}z + {d} = 0\")"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "The plane passes through point\n",
+        "A\n",
+        "(\n",
+        "1\n",
+        ",\n",
+        "2\n",
+        ",\n",
+        "3\n",
+        ")\n",
+        " and is parallel to the plane\n",
+        "2\n",
+        "x\n",
+        "+\n",
+        "3\n",
+        "y\n",
+        "+\n",
+        "4\n",
+        "z\n",
+        "=\n",
+        "5\n",
+        ". Find the equation of the plane.\n"
+      ],
+      "metadata": {
+        "id": "23g43OcVkjg3"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Define the point and normal vector (same as the given plane)\n",
+        "point_A = [1, 2, 3]\n",
+        "normal_vector = [2, 3, 4]\n",
+        "\n",
+        "# Extract coefficients of the normal vector\n",
+        "a, b, c = normal_vector\n",
+        "\n",
+        "# Calculate the constant term (d)\n",
+        "d = -(a * point_A[0] + b * point_A[1] + c * point_A[2])\n",
+        "\n",
+        "# Print the equation of the plane\n",
+        "print(f\"The equation of the plane is: {a}x + {b}y + {c}z + {d} = 0\")"
+      ],
+      "metadata": {
+        "id": "y9k0oCbtkkf5"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "The plane passes through point\n",
+        "A\n",
+        "(\n",
+        "1\n",
+        ",\n",
+        "2\n",
+        ",\n",
+        "3\n",
+        ")\n",
+        " and is perpendicular to the normal vector\n",
+        "n\n",
+        "→\n",
+        "=\n",
+        "[\n",
+        "2\n",
+        ",\n",
+        "3\n",
+        ",\n",
+        "4\n",
+        "]\n",
+        ". Find the equation of the plane.\n"
+      ],
+      "metadata": {
+        "id": "dckw_6hLkkuw"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Define the point and normal vector\n",
+        "point_A = [1, 2, 3]\n",
+        "normal_vector = [2, 3, 4]\n",
+        "\n",
+        "# Extract coefficients of the normal vector\n",
+        "a, b, c = normal_vector\n",
+        "\n",
+        "# Calculate the constant term (d)\n",
+        "d = -(a * point_A[0] + b * point_A[1] + c * point_A[2])\n",
+        "\n",
+        "# Print the equation of the plane\n",
+        "print(f\"The equation of the plane is: {a}x + {b}y + {c}z + {d} = 0\")"
+      ],
+      "metadata": {
+        "id": "xq3fQq0QklBP"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "We have two planes\n",
+        "2\n",
+        "x\n",
+        "+\n",
+        "3\n",
+        "y\n",
+        "+\n",
+        "4\n",
+        "z\n",
+        "=\n",
+        "5\n",
+        " and\n",
+        "3\n",
+        "x\n",
+        "+\n",
+        "4\n",
+        "y\n",
+        "+\n",
+        "2\n",
+        "z\n",
+        "=\n",
+        "6\n",
+        ". Find the line of intersection of these planes."
+      ],
+      "metadata": {
+        "id": "jN-QUWKRklSZ"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "# Define the plane equations\n",
+        "plane1_coeffs = np.array([2, 3, 4])\n",
+        "plane1_constant = -5\n",
+        "plane2_coeffs = np.array([3, 4, 2])\n",
+        "plane2_constant = -6\n",
+        "\n",
+        "# Calculate the direction vector (cross product of normal vectors)\n",
+        "direction_vector = np.cross(plane1_coeffs, plane2_coeffs)\n",
+        "\n",
+        "# Find a point on the line (set z = 0 and solve for x and y)\n",
+        "# 2x + 3y = 5\n",
+        "# 3x + 4y = 6\n",
+        "A = np.array([[2, 3], [3, 4]])\n",
+        "b = np.array([5, 6])\n",
+        "x, y = np.linalg.solve(A, b)\n",
+        "point_on_line = np.array([x, y, 0])\n",
+        "\n",
+        "# Print the parametric equations of the line\n",
+        "print(\"Parametric equations of the line of intersection:\")\n",
+        "print(f\"x = {point_on_line[0]:.2f} + {direction_vector[0]}t\")\n",
+        "print(f\"y = {point_on_line[1]:.2f} + {direction_vector[1]}t\")\n",
+        "print(f\"z = {point_on_line[2]:.2f} + {direction_vector[2]}t\")"
+      ],
+      "metadata": {
+        "id": "7i2dDsb4mV2w"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Write the equation of the plane passing through point\n",
+        "A\n",
+        "(\n",
+        "1\n",
+        ",\n",
+        "2\n",
+        ",\n",
+        "3\n",
+        ")\n",
+        " and parallel to vectors\n",
+        "v\n",
+        "1\n",
+        "→\n",
+        "=\n",
+        "[\n",
+        "1\n",
+        ",\n",
+        "0\n",
+        ",\n",
+        "1\n",
+        "]\n",
+        " and\n",
+        "v\n",
+        "2\n",
+        "→\n",
+        "=\n",
+        "[\n",
+        "0\n",
+        ",\n",
+        "1\n",
+        ",\n",
+        "−\n",
+        "1\n",
+        "]\n",
+        ".\n"
+      ],
+      "metadata": {
+        "id": "m4TtjAr5klyb"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "# Define the point and vectors\n",
+        "point_A = np.array([1, 2, 3])\n",
+        "v1 = np.array([1, 0, 1])\n",
+        "v2 = np.array([0, 1, -1])\n",
+        "\n",
+        "# Calculate the normal vector\n",
+        "normal_vector = np.cross(v1, v2)\n",
+        "\n",
+        "# Extract coefficients of the normal vector\n",
+        "a, b, c = normal_vector\n",
+        "\n",
+        "# Calculate the constant term (d)\n",
+        "d = -np.dot(normal_vector, point_A)\n",
+        "\n",
+        "# Print the equation of the plane\n",
+        "print(f\"The equation of the plane is: {a}x + {b}y + {c}z + {d} = 0\")"
+      ],
+      "metadata": {
+        "id": "zIjYOZWvkmXL"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "We have the plane\n",
+        "2\n",
+        "x\n",
+        "+\n",
+        "3\n",
+        "y\n",
+        "+\n",
+        "4\n",
+        "z\n",
+        "=\n",
+        "5\n",
+        ". Find an example of a plane parallel and perpendicular to it."
+      ],
+      "metadata": {
+        "id": "aMA5YxZakmpY"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Parallel plane example\n",
+        "print(\"Parallel plane: 4x + 6y + 8z = 10\")\n",
+        "\n",
+        "# Perpendicular plane example\n",
+        "print(\"Perpendicular plane: 3x - 2y = 0\")"
+      ],
+      "metadata": {
+        "id": "mC_Hwirmkm5x"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "We have the plane\n",
+        "2\n",
+        "x\n",
+        "+\n",
+        "3\n",
+        "y\n",
+        "+\n",
+        "4\n",
+        "z\n",
+        "=\n",
+        "5\n",
+        " and point\n",
+        "A\n",
+        "(\n",
+        "1\n",
+        ",\n",
+        "2\n",
+        ",\n",
+        "3\n",
+        ")\n",
+        ". Find the distance from point\n",
+        "A\n",
+        " to this plane."
+      ],
+      "metadata": {
+        "id": "vXSYR2otknVK"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "# Define the point and plane coefficients\n",
+        "point = np.array([1, 2, 3])\n",
+        "plane_coeffs = np.array([2, 3, 4])\n",
+        "plane_constant = -5  # Move the constant to the left side of the equation\n",
+        "\n",
+        "# Calculate the distance\n",
+        "distance = abs(np.dot(plane_coeffs, point) + plane_constant) / np.linalg.norm(plane_coeffs)\n",
+        "\n",
+        "print(f\"The distance from point A to the plane is: {distance:.2f}\")"
+      ],
+      "metadata": {
+        "id": "olU2Oyk7knto"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "The plane intersects the coordinate axes at points\n",
+        "A\n",
+        "(\n",
+        "2\n",
+        ",\n",
+        "0\n",
+        ",\n",
+        "0\n",
+        ")\n",
+        ",\n",
+        "B\n",
+        "(\n",
+        "0\n",
+        ",\n",
+        "3\n",
+        ",\n",
+        "0\n",
+        ")\n",
+        ", and\n",
+        "C\n",
+        "(\n",
+        "0\n",
+        ",\n",
+        "0\n",
+        ",\n",
+        "4\n",
+        ")\n",
+        ". Find the equation of the plane."
+      ],
+      "metadata": {
+        "id": "k44mPhEkkoFm"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "# Define the points\n",
+        "A = np.array([2, 0, 0])\n",
+        "B = np.array([0, 3, 0])\n",
+        "C = np.array([0, 0, 4])\n",
+        "\n",
+        "# Calculate two vectors in the plane\n",
+        "AB = B - A\n",
+        "AC = C - A\n",
+        "\n",
+        "# Calculate the normal vector (cross product of AB and AC)\n",
+        "normal_vector = np.cross(AB, AC)\n",
+        "\n",
+        "# Get the coefficients of the plane equation\n",
+        "a, b, c = normal_vector\n",
+        "\n",
+        "# Calculate the constant d using point A\n",
+        "d = -np.dot(normal_vector, A)\n",
+        "\n",
+        "# Print the equation of the plane\n",
+        "print(f\"The equation of the plane is: {a}x + {b}y + {c}z + {d} = 0\")"
+      ],
+      "metadata": {
+        "id": "IvZulokikoUs"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Calculate the angle between the plane\n",
+        "x\n",
+        "+\n",
+        "y\n",
+        "+\n",
+        "z\n",
+        "=\n",
+        "1\n",
+        " and the plane\n",
+        "x\n",
+        "=\n",
+        "0\n",
+        " (i.e., the\n",
+        "y\n",
+        "z\n",
+        " plane)."
+      ],
+      "metadata": {
+        "id": "xmP0x64ekpze"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "# Define the normal vectors\n",
+        "normal_vector1 = np.array([1, 1, 1])  # Normal vector of x + y + z = 1\n",
+        "normal_vector2 = np.array([1, 0, 0])  # Normal vector of x = 0\n",
+        "\n",
+        "# Calculate the dot product\n",
+        "dot_product = np.dot(normal_vector1, normal_vector2)\n",
+        "\n",
+        "# Calculate the magnitudes\n",
+        "magnitude1 = np.linalg.norm(normal_vector1)\n",
+        "magnitude2 = np.linalg.norm(normal_vector2)\n",
+        "\n",
+        "# Calculate the angle in radians\n",
+        "angle_rad = np.arccos(dot_product / (magnitude1 * magnitude2))\n",
+        "\n",
+        "# Convert the angle to degrees\n",
+        "angle_deg = np.degrees(angle_rad)\n",
+        "\n",
+        "print(f\"The angle between the planes is: {angle_deg:.2f} degrees\")"
+      ],
+      "metadata": {
+        "id": "SZA2QfYpkqDY"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Find the vector perpendicular to the plane\n",
+        "x\n",
+        "+\n",
+        "y\n",
+        "+\n",
+        "z\n",
+        "=\n",
+        "1\n",
+        ".\n"
+      ],
+      "metadata": {
+        "id": "zgiWxPDWkqPl"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "# The coefficients of x, y, and z in the equation x + y + z = 1 are 1, 1, and 1.\n",
+        "# Therefore, the normal vector is [1, 1, 1].\n",
+        "\n",
+        "normal_vector = np.array([1, 1, 1])\n",
+        "\n",
+        "print(normal_vector)"
+      ],
+      "metadata": {
+        "id": "ABhifCTWkqrM"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
