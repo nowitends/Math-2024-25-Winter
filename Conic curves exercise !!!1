@@ -1,0 +1,368 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPS+9O/dnHzWsmIH727bCX2",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Fefefefe1/Math-2024-25-Winter/blob/main/Conic%20curves%20exercise%20!!!1\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Find the equation of a circle with center at point\n",
+        "A\n",
+        "(\n",
+        "1\n",
+        ",\n",
+        "2\n",
+        ")\n",
+        " and radius\n",
+        "r\n",
+        "=\n",
+        "3\n",
+        "."
+      ],
+      "metadata": {
+        "id": "_HtVWi3zi8uY"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import matplotlib.pyplot as plt\n",
+        "import numpy as np\n",
+        "\n",
+        "# Define the center and radius of the circle\n",
+        "center_x = 1\n",
+        "center_y = 2\n",
+        "radius = 3\n",
+        "\n",
+        "# Create the equation of the circle\n",
+        "def circle_equation(x):\n",
+        "    return np"
+      ],
+      "metadata": {
+        "id": "fLmP32KYjAW6"
+      },
+      "execution_count": 1,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Find the equation of a parabola intersecting the\n",
+        "O\n",
+        "x\n",
+        " axis at points\n",
+        "x\n",
+        "=\n",
+        "2\n",
+        ",\n",
+        "x\n",
+        "=\n",
+        "4\n",
+        ", and passing through point\n",
+        "y\n",
+        "(\n",
+        "3\n",
+        ")\n",
+        "=\n",
+        "1\n",
+        "."
+      ],
+      "metadata": {
+        "id": "YVzohh6ti_3Z"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "import matplotlib.pyplot as plt\n",
+        "\n",
+        "# Define the known points\n",
+        "x_points = [2, 4, 3]\n",
+        "y_points = [0, 0, 1]\n",
+        "\n",
+        "# Fit a quadratic curve to the points\n",
+        "coefficients = np.polyfit(x_points, y_points, 2)\n",
+        "\n",
+        "# Extract the coefficients\n",
+        "a, b, c = coefficients\n",
+        "\n",
+        "# Define the parabola equation\n",
+        "def parabola_equation(x):\n",
+        "    return a * x**2 + b * x + c\n",
+        "\n",
+        "# Generate x-values for plotting\n",
+        "x = np.linspace(1, 5, 100)  # Adjust range if needed\n",
+        "\n",
+        "# Calculate y-values using the equation\n",
+        "y = parabola_equation(x)\n",
+        "\n",
+        "# Plot the parabola\n",
+        "plt.plot(x, y)\n",
+        "\n",
+        "# Plot the known points\n",
+        "plt.scatter(x_points, y_points, color='red', label='Known Points')\n",
+        "\n",
+        "# Set plot properties for better visualization\n",
+        "plt.xlabel(\"x\")\n",
+        "plt.ylabel(\"y\")\n",
+        "plt.title(\"Parabola\")\n",
+        "plt.grid(True)\n",
+        "plt.legend()\n",
+        "\n",
+        "# Display the plot\n",
+        "plt.show()\n",
+        "\n",
+        "# Print the equation of the parabola\n",
+        "print(f\"The equation of the parabola is: y = {a:.2f}x^2 + {b:.2f}x + {c:.2f}\")"
+      ],
+      "metadata": {
+        "id": "GpTLamPNjA4g"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Find the center of the ellipse with the equation\n",
+        "x\n",
+        "2\n",
+        "+\n",
+        "4\n",
+        "y\n",
+        "2\n",
+        "−\n",
+        "4\n",
+        "x\n",
+        "−\n",
+        "16\n",
+        "y\n",
+        "+\n",
+        "16\n",
+        "=\n",
+        "0\n",
+        "."
+      ],
+      "metadata": {
+        "id": "-E3dpw8sjBUp"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import sympy\n",
+        "\n",
+        "# Define the equation of the ellipse\n",
+        "x, y = sympy.symbols('x y')\n",
+        "ellipse_equation = x**2 + 4*y**2 - 4*x - 16*y + 16\n",
+        "\n",
+        "# Complete the square to find the center\n",
+        "ellipse_equation = sympy.expand(ellipse_equation)\n",
+        "ellipse_equation = sympy.collect(ellipse_equation, (x, y))\n",
+        "\n",
+        "# Extract the coefficients\n",
+        "coeff_x2 = ellipse_equation.coeff(x**2)\n",
+        "coeff_y2 = ellipse_equation.coeff(y**2)\n",
+        "coeff_x = ellipse_equation.coeff(x)\n",
+        "coeff_y = ellipse_equation.coeff(y)\n",
+        "constant = ellipse_equation.coeff(1)\n",
+        "\n",
+        "# Calculate the center coordinates\n",
+        "center_x = -coeff_x / (2 * coeff_x2)\n",
+        "center_y = -coeff_y / (2 * coeff_y2)\n",
+        "\n",
+        "# Print the center coordinates\n",
+        "print(f\"The center of the ellipse is: ({center_x}, {center_y})\")"
+      ],
+      "metadata": {
+        "id": "RizKF1eBjBtG"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "ind the slope (\n",
+        "m\n",
+        ">\n",
+        "0\n",
+        ") of the line\n",
+        "y\n",
+        "=\n",
+        "m\n",
+        "x\n",
+        "−\n",
+        "5\n",
+        " that is tangent to the circle with the equation\n",
+        "x\n",
+        "2\n",
+        "+\n",
+        "y\n",
+        "2\n",
+        "=\n",
+        "1\n",
+        ".\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "n_8vSBo6jB7s"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import sympy\n",
+        "\n",
+        "# Define variables\n",
+        "m = sympy.Symbol('m', positive=True)\n",
+        "x, y = sympy.symbols('x y')\n",
+        "\n",
+        "# Define the equations of the line and the circle\n",
+        "line_equation = y - m * x + 5\n",
+        "circle_equation = x**2 + y**2 - 1\n",
+        "\n",
+        "# Substitute the line equation into the circle equation\n",
+        "circle_equation_substituted = circle_equation.subs(y, m * x - 5)\n",
+        "\n",
+        "# Solve for x\n",
+        "x_solutions = sympy.solve(circle_equation_substituted, x)\n",
+        "\n",
+        "# The line is tangent to the circle when there is only one solution for x\n",
+        "# This happens when the discriminant of the quadratic equation is 0\n",
+        "discriminant = sympy.discriminant(circle_equation_substituted, x)\n",
+        "\n",
+        "# Solve for m\n",
+        "m_solution = sympy.solve(discriminant, m)\n",
+        "\n",
+        "# Print the positive solution for m\n",
+        "print(f\"The slope of the tangent line is: {m_solution[0]}\")"
+      ],
+      "metadata": {
+        "id": "Xk2GWGvgjPMX"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Find the intersection points of the hyperbola\n",
+        "x\n",
+        "2\n",
+        "−\n",
+        "y\n",
+        "2\n",
+        "=\n",
+        "1\n",
+        " with the ellipse's line\n",
+        "x\n",
+        "2\n",
+        "+\n",
+        "4\n",
+        "y\n",
+        "2\n",
+        "=\n",
+        "6\n",
+        ".\n"
+      ],
+      "metadata": {
+        "id": "C_jy8VeOjPjB"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import sympy\n",
+        "\n",
+        "# Define variables\n",
+        "x, y = sympy.symbols('x y')\n",
+        "\n",
+        "# Define the equations of the hyperbola and the ellipse\n",
+        "hyperbola_equation = x**2 - y**2 - 1\n",
+        "ellipse_equation = x**2 + 4*y**2 - 6\n",
+        "\n",
+        "# Solve the system of equations\n",
+        "solutions = sympy.solve([hyperbola_equation, ellipse_equation], (x, y))\n",
+        "\n",
+        "# Print the intersection points\n",
+        "print(\"The intersection points are:\")\n",
+        "for solution in solutions:\n",
+        "    print(f\"({solution[x]}, {solution[y]})\")"
+      ],
+      "metadata": {
+        "id": "lUmbKRMdjP3F"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "For the given hyperbola\n",
+        "x\n",
+        "2\n",
+        "−\n",
+        "y\n",
+        "2\n",
+        "=\n",
+        "1\n",
+        ", find the distance between its branches.\n"
+      ],
+      "metadata": {
+        "id": "kNwzdachjQKn"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import sympy\n",
+        "\n",
+        "# Define variables\n",
+        "x, y = sympy.symbols('x y')\n",
+        "\n",
+        "# Define the equation of the hyperbola\n",
+        "hyperbola_equation = x**2 - y**2 - 1\n",
+        "\n",
+        "# Find the vertices of the hyperbola\n",
+        "# The vertices are the points where the hyperbola intersects the x-axis (y = 0)\n",
+        "vertices_x = sympy.solve(hyperbola_equation.subs(y, 0), x)\n",
+        "\n",
+        "# The distance between the branches is twice the distance from the center to a vertex\n",
+        "distance = 2 * abs(vertices_x[1])  # vertices_x[1] is the positive x-coordinate of the vertex\n",
+        "\n",
+        "# Print the distance\n",
+        "print(f\"The distance between the branches of the hyperbola is: {distance}\")"
+      ],
+      "metadata": {
+        "id": "Gtw2gzM8jQdn"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
