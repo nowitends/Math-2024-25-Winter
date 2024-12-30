@@ -1,0 +1,368 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOxHVN3uttvJWgtrtINtXH3",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Fefefefe1/Math-2024-25-Winter/blob/main/Lines%20exercises%20answers\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Exercises for Lines"
+      ],
+      "metadata": {
+        "id": "zv31TLntcmPX"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "bDDwPkyaclRG",
+        "outputId": "cfca1933-0b26-4efa-b40d-8e5784b1c95f"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The equation of the line is y = 1.0x + 1.0\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Define the coordinates of the two points\n",
+        "x1, y1 = 1, 2\n",
+        "x2, y2 = 3, 4\n",
+        "\n",
+        "# Calculate the slope (m)\n",
+        "m = (y2 - y1) / (x2 - x1)\n",
+        "\n",
+        "# Calculate the y-intercept (b) using the point-slope form (y - y1 = m(x - x1))\n",
+        "b = y1 - m * x1\n",
+        "\n",
+        "# Print the equation of the line in the form y = mx + b\n",
+        "print(f\"The equation of the line is y = {m}x + {b}\")"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Define the coordinates of the point\n",
+        "x1, y1 = 1, 2\n",
+        "\n",
+        "# The slope of the parallel line is the same as the given line, which is 2\n",
+        "m = 2\n",
+        "\n",
+        "# Calculate the y-intercept (b) using the point-slope form (y - y1 = m(x - x1))\n",
+        "b = y1 - m * x1\n",
+        "\n",
+        "# Print the equation of the line in the form y = mx + b\n",
+        "print(f\"The equation of the line is y = {m}x + {b}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Z-_vlPGxcxMJ",
+        "outputId": "9e52db60-b2ef-487c-8086-27b01d50f576"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The equation of the line is y = 2x + 0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "# Define the coefficients of the lines\n",
+        "a1, b1, c1 = -2, 1, 3  # y = 2x + 3  =>  -2x + y = 3\n",
+        "a2, b2, c2 = -3, 1, 2  # y = 3x + 2  =>  -3x + y = 2\n",
+        "\n",
+        "# Calculate the intersection point (x, y)\n",
+        "x = (b1 * c2 - b2 * c1) / (a1 * b2 - a2 * b1)\n",
+        "y = (a2 * c1 - a1 * c2) / (a1 * b2 - a2 * b1)\n",
+        "\n",
+        "print(f\"The intersection point is ({x}, {y})\")\n",
+        "\n",
+        "# Calculate the angle between the lines using the slopes\n",
+        "m1 = 2  # Slope of the first line\n",
+        "m2 = 3  # Slope of the second line\n",
+        "\n",
+        "# Calculate the angle using the formula: tan(theta) = (m2 - m1) / (1 + m1 * m2)\n",
+        "angle_rad = np.arctan(abs((m2 - m1) / (1 + m1 * m2)))\n",
+        "angle_deg = np.degrees(angle_rad)\n",
+        "\n",
+        "print(f\"The angle between the lines is {angle_deg} degrees\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "UVCkV8oRcxaN",
+        "outputId": "e3949890-22b4-42a7-a482-6f879c5a5de5"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The intersection point is (-1.0, -5.0)\n",
+            "The angle between the lines is 8.130102354155978 degrees\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Define the point and the vector\n",
+        "x1, y1 = 1, 2  # Point A\n",
+        "a, b = 2, 3    # Vector v\n",
+        "\n",
+        "# The equation of the line is given by: (x - x1) / a = (y - y1) / b\n",
+        "# Rearranging to the form y = mx + c:\n",
+        "\n",
+        "# Calculate the slope (m)\n",
+        "m = b / a\n",
+        "\n",
+        "# Calculate the y-intercept (c)\n",
+        "c = y1 - m * x1\n",
+        "\n",
+        "# Print the equation of the line\n",
+        "print(f\"The equation of the line is y = {m}x + {c}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Ajaj4fOtdKJf",
+        "outputId": "a1784f64-abe9-4af0-dbb8-055fed91d575"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The equation of the line is y = 1.5x + 0.5\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Original line: y = 2x + 3\n",
+        "original_slope = 2\n",
+        "\n",
+        "# Parallel line: It will have the same slope\n",
+        "parallel_slope = original_slope\n",
+        "# Choose any y-intercept (e.g., 5)\n",
+        "parallel_y_intercept = 5\n",
+        "\n",
+        "# Perpendicular line: It will have a negative reciprocal slope\n",
+        "perpendicular_slope = -1 / original_slope\n",
+        "# Choose any y-intercept (e.g., -2)\n",
+        "perpendicular_y_intercept = -2\n",
+        "\n",
+        "# Print the equations of the lines\n",
+        "print(f\"Parallel line: y = {parallel_slope}x + {parallel_y_intercept}\")\n",
+        "print(f\"Perpendicular line: y = {perpendicular_slope}x + {perpendicular_y_intercept}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "IsRk3qAtdO-3",
+        "outputId": "7a07e141-f06d-4576-873c-304ae79602b1"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Parallel line: y = 2x + 5\n",
+            "Perpendicular line: y = -0.5x + -2\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Original line: y = 2x + 3\n",
+        "original_slope = 2\n",
+        "\n",
+        "# Parallel line: It will have the same slope\n",
+        "parallel_slope = original_slope\n",
+        "# Choose any y-intercept (e.g., 5)\n",
+        "parallel_y_intercept = 5\n",
+        "\n",
+        "# Perpendicular line: It will have a negative reciprocal slope\n",
+        "perpendicular_slope = -1 / original_slope\n",
+        "# Choose any y-intercept (e.g., -2)\n",
+        "perpendicular_y_intercept = -2\n",
+        "\n",
+        "# Print the equations of the lines\n",
+        "print(f\"Parallel line: y = {parallel_slope}x + {parallel_y_intercept}\")\n",
+        "print(f\"Perpendicular line: y = {perpendicular_slope}x + {perpendicular_y_intercept}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "VLt1pSeedS_G",
+        "outputId": "14a5fdd5-eaaa-4b1c-c369-218d96b30057"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Parallel line: y = 2x + 5\n",
+            "Perpendicular line: y = -0.5x + -2\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Define the points where the line intersects the axes\n",
+        "x_intercept = 2  # x-coordinate of point A\n",
+        "y_intercept = 3  # y-coordinate of point B\n",
+        "\n",
+        "# Calculate the slope (m) using the intercepts: m = - (y-intercept / x-intercept)\n",
+        "m = - (y_intercept / x_intercept)\n",
+        "\n",
+        "# The equation of the line in slope-intercept form is y = mx + b\n",
+        "# Since the y-intercept is given (b = 3), the equation is:\n",
+        "# y = mx + y_intercept\n",
+        "\n",
+        "# Print the equation of the line\n",
+        "print(f\"The equation of the line is y = {m}x + {y_intercept}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1vtLQ19LdTf7",
+        "outputId": "381ea64d-580b-46bc-81ea-ba87612efb54"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The equation of the line is y = -1.5x + 3\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "# The slope of the line y = x + 3 is 1 (the coefficient of x)\n",
+        "slope = 1\n",
+        "\n",
+        "# The angle between the line and the Ox axis is given by the arctangent of the slope\n",
+        "angle_rad = np.arctan(slope)\n",
+        "\n",
+        "# Convert the angle from radians to degrees\n",
+        "angle_deg = np.degrees(angle_rad)\n",
+        "\n",
+        "# Print the angle\n",
+        "print(f\"The angle between the line and the Ox axis is {angle_deg} degrees\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "E1mqlkQtdcEo",
+        "outputId": "3f698a65-d7eb-41cb-d8e6-36e38d6c6feb"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The angle between the line and the Ox axis is 45.0 degrees\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# The line equation is x + y + 1 = 0, which can be rewritten as y = -x - 1\n",
+        "# The slope of the line is -1 (the coefficient of x)\n",
+        "\n",
+        "# A vector perpendicular to a line with slope m has the form (1, -m) or (-1, m)\n",
+        "# In this case, m = -1, so a perpendicular vector is (1, -(-1)) = (1, 1)\n",
+        "\n",
+        "# Define the perpendicular vector\n",
+        "perpendicular_vector = (1, 1)\n",
+        "\n",
+        "# Print the vector\n",
+        "print(f\"A vector perpendicular to the line is {perpendicular_vector}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "AwsFIVxjdhBq",
+        "outputId": "0b7d546f-baed-4e59-f738-5e18bd9ec397"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "A vector perpendicular to the line is (1, 1)\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
